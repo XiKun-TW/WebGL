@@ -9,6 +9,11 @@
 </section>
 
 <section>
+    <p>先来个暖场show case</p>
+    <img src="/img/show case.gif" width="400" height="400"></img>
+</section>
+
+<section>
     <p>画一个点需要几步？</p>
     <ol style="font-size:70%">
         <li>建好画舫 (create canvas)</li>
@@ -153,7 +158,7 @@ function main() {
 </section>
 
 <section>
-    <p>将造好的画笔、造调色板分配给画舫 (use program)</p>
+    <p>将造好的画笔、调色板分配给画舫 (use program)</p>
     <pre>
         <code class="js">
 //创建着色器方法
@@ -181,7 +186,8 @@ function createProgram(gl, vertexShader, fragmentShader) {
         <code class="js">
 function main() {
     ...
-    const program = createProgram(gl, vertexShader, fragmentShader);
+    const program = 
+        createProgram(gl, vertexShader, fragmentShader);
     gl.useProgram(program);
     ...
 }
@@ -195,8 +201,10 @@ function main() {
         <code class="js">
 function main() {
     ...
-    const a_position = gl.getAttribLocation(program, 'a_position');
-    const a_pointsize = gl.getAttribLocation(program, 'a_pointsize');
+    const a_position = 
+        gl.getAttribLocation(program, 'a_position');
+    const a_pointsize = 
+        gl.getAttribLocation(program, 'a_pointsize');
 
     gl.vertexAttrib3f(a_position, 0.0, 0.0, 0.0);
     gl.vertexAttrib1f(a_pointsize, 10.0);
@@ -212,7 +220,8 @@ function main() {
         <code class="js">
 function main() {
     ...
-    const a_color = gl.getUniformLocation(program, 'a_color');
+    const a_color = 
+        gl.getUniformLocation(program, 'a_color');
     gl.uniform4f(a_color, 1.0, 0.0, 0.0,1.0);
 
     gl.clearColor(0, 0, 0, 1);
@@ -239,8 +248,7 @@ function main() {
     gl.vertexAttrib3f(a_position, 0.5, 0.5, 0.0);
     gl.vertexAttrib1f(a_pointsize, 10.0);
     gl.uniform4f(a_color, 0.0, 1.0, 0.0 ,1.0);
-    gl.drawArrays(gl.POINTS, 0, 1);  
-
+    gl.drawArrays(gl.POINTS, 0, 1);
 
     gl.vertexAttrib3f(a_position, 0.5, -0.5, 0.0);
     gl.vertexAttrib1f(a_pointsize, 10.0);
@@ -272,16 +280,16 @@ function main() {
 </section>
 
 <section>
-    <p>造样片 (create buffer</p>
+    <p>造样片 (create buffer)</p>
     <pre>
         <code data-trim data-noescape>
-        ```
+```
 <body>
     ...
     <script id="vertex-shader" type="notjs">
         attribute vec4 a_position;
         attribute vec4 a_color;
-        varying vec4 v_color;      
+        varying vec4 v_color;
         void main() {
             gl_Position = a_position;
             v_color = a_color;
@@ -296,13 +304,13 @@ function main() {
     </script>
     ...
 </body>
-        ```
+```
         </code>
     </pre>
 </section>
 
 <section>
-    <p>造样片 (create buffer</p>
+    <p>造样片 (create buffer)</p>
     <pre>
         <code class="js">
 function initVertexBuffers(gl, program) {
